@@ -15,9 +15,9 @@
 
     Matrix Matrix::get_cofactor(size_t p, size_t q) const {
         Matrix cofactor(rows - 1, cols - 1);
-        size_t i{}, j{};
-        for (size_t row{}; row < rows; row++) {
-            for (size_t col{}; col < cols; col++) {
+        size_t i = 0, j = 0;
+        for (size_t row = 0; row < rows; row++) {
+            for (size_t col = 0; col < cols; col++) {
                 if (row != p && col != q) {
                     cofactor.data[i][j++] = data[row][col];
                     if (j == cols - 1) {
@@ -42,7 +42,7 @@
         }
         double det = 0;
         int sign{1};
-        for (size_t f{}; f < mat.cols; f++) {
+        for (size_t f = 0; f < mat.cols; f++) {
             Matrix cofactor = mat.get_cofactor(0, f);
             det += sign * mat.data[0][f] * determinant(cofactor);
             sign = -sign;
