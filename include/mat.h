@@ -1,5 +1,5 @@
 #ifndef MAT_H
-#define MAT_H   // include guards. Запрешает повторное включение файла
+#define MAT_H   
 
 #include <iostream>
 #include <vector>
@@ -24,31 +24,26 @@ private:
     * \brief Checks if the dimensions of the matrices match.
     * \param other The matrix to compare dimensions with.
     * \throw std::invalid_argument if the dimensions do not match.
-    * \return void
     */
     void check_dimensions(const Matrix& other) const;
     /**
     * \brief Returns the cofactor matrix for a given element.
     * \param p Row index of the element.
     * \param q Column index of the element.
-    * \param other ппрпрпрпр
     * \return The cofactor matrix.
-    * \return void
     */
     Matrix get_cofactor(size_t p, size_t q) const;
     /**
     * \brief Calculates the determinant of the matrix.
     * \param mat The matrix for which to calculate the determinant.
     * \return The determinant of the matrix.
-    * \param other dwedw
-    * \return void
     */
     double determinant(const Matrix& mat) const;
-public:
     /**
     * \brief Calculates the adjoint of the matrix.
     * \return The adjoint matrix.
     */
+public:
     Matrix adjoint() const;
     /**
     * \brief Constructs a matrix with specified number of rows and columns.
