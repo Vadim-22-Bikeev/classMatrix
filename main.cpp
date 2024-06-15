@@ -5,6 +5,13 @@
 #include <vector>
 #include "mat.h"
 
+
+/**
+* \brief Prompts the user to enter several matrices 
+* This function asks the user to specify the number of matrices, then for each matrix, it requests
+* the dimensions (rows and columns) and the elements.
+* \param matrices A map to store the matrices with char keys and unique_ptr values.
+*/
 void getMatricesFromUser(std::map<char, std::unique_ptr<Matrix>>& matrices) {
     int numMatrices;
     std::cout << "Enter the number of matrices: ";
@@ -29,7 +36,13 @@ void getMatricesFromUser(std::map<char, std::unique_ptr<Matrix>>& matrices) {
     }
 }
 
-// Function to request the operation chain from the user
+/**
+* \brief Requests the operation chain from the user.
+* This function prompts the user to enter a chain of operations to be performed on the matrices.
+* The operations should be in the format of a mathematical expression involving matrix names, 
+* such as "A*B+C".
+* \return A string representing the chain of operations.
+*/
 std::string getOperationChain() {
     std::string operations;
     std::cout << "Enter the chain of operations (e.g., A*B+C): ";
@@ -37,6 +50,13 @@ std::string getOperationChain() {
     return operations;
 }
 
+/**
+* \brief Evaluates a chain of matrix operations.
+* \param chain A string representing the chain of operations.
+* \param matrices A,B,C...
+* \return A Matrix object representing the result of the operations.
+* \throw std::invalid_argument if an invalid operation is encountered.
+*/
 Matrix evaluateOperationChain(const std::string& chain, const std::map<char, std::unique_ptr<Matrix>>& matrices) {
     std::vector<Matrix> operands;
     std::vector<char> operators;
